@@ -93,6 +93,13 @@ class ViewPager extends React.Component<ViewPagerProps> {
       }
     }
   }
+  componentDidUpdate() {
+    if (Platform.OS === 'android') {
+      if (this.props.changePage != null) {
+        this.setPageWithoutAnimation(this.props.changePage);
+      }
+    }
+  }
 
   /* $FlowFixMe(>=0.78.0 site=react_native_android_fb) This issue was found
    * when making Flow check .android.js files. */
